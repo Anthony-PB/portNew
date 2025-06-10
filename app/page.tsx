@@ -13,7 +13,7 @@ export default function Home() {
           <div className="hero-content">
             <span className="badge badge-outline">Computer Science Student</span>
             <h1 className="hero-title">
-              Anthony <span className="gradient-text">Paredes</span>
+              Anthony <span className="gradient-text">Paredes-Bautista</span>
             </h1>
             <p className="hero-description">
               Tech enthusiast and aspiring software engineer with a passion for building innovative solutions.

@@ -25,7 +25,7 @@ export default function ProjectsPage() {
               description="Built a machine learning pipeline to classify protein microscopy images using data from the Human Protein Atlas. Preprocessed multi-channel images with custom one-hot encoding and trained a convolutional neural network using TensorFlow, optimizing data pipelines with tf.data. Evaluated model performance via validation accuracy, achieving 95.72%."
               tags={["Python", "TensorFlow", "NumPy", "Pandas"]}
               date="January 2025"
-              github="https://github.com/Anthony-PB/Human-Protein-Atlas-Classification"
+              github="https://github.com/Anthony-PB/ML_notebooks"
             />
 
             <ProjectCard
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
               description="Enabled streamlined book, author, and genre management, measured by prototype tests showing 30% faster task completion, by developing a modular React front-end. Validated reliable CRUD functionality through unit and integration tests by designing and iterating Express.js APIs with MongoDB schemas."
               tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
               date="September 2024 - Present"
-              github="https://github.com/Anthony-PB/Book-Tracker"
+              github="https://github.com/Anthony-PB/bookTracker"
             />
 
             <ProjectCard
@@ -41,7 +41,7 @@ export default function ProjectsPage() {
               description="Unified platform streamlining campus life by combining key student services into one app. Enhanced efficiency by integrating features such as Study Buddy, Dining options, and campus utilities. Extensions in progress: Total UI Revamp, Dining Helper, Study Spot Finder."
               tags={["Kotlin", "Jetpack Compose", "Hilt"]}
               date="April 2024 - Present"
-              github="https://github.com/Anthony-PB/Multi-Service-App"
+              github="https://github.com/alexmcgowan112/android-hack-challenge-fa24"
             />
 
             <ProjectCard
@@ -49,7 +49,8 @@ export default function ProjectsPage() {
               description="Developed software modules and deployed the website for Prakriti, a prototype IoT solution to curb rice crop burning in India (responsible for 86 million tonnes of CO2 emissions annually). Collaborated on design and development, helping secure a $3,000 award at the Cornell Digital Ag Hackathon."
               tags={["Arduino", "React", "JavaScript", "HTML/CSS", "Netlify"]}
               date="February 2024"
-              github="https://github.com/Anthony-PB/Prakriti"
+              github="https://github.com/NicholasChanng/prakriti"
+              liveDemo="https://prakriti-hack.netlify.app/"
             />
           </div>
         </div>
@@ -79,12 +80,14 @@ function ProjectCard({
   tags,
   date,
   github,
+  liveDemo,
 }: {
   title: string
   description: string
   tags: string[]
   date: string
   github: string
+  liveDemo?: string
 }) {
   return (
     <div className="card">
@@ -109,10 +112,12 @@ function ProjectCard({
             <GithubIcon />
             GitHub
           </Link>
-          <Link href="#" target="_blank" className="btn btn-outline">
+          {liveDemo && (
+          <Link href={liveDemo} target="_blank" className="btn btn-outline">
             <ExternalLinkIcon />
             Live Demo
           </Link>
+          )}
         </div>
       </div>
     </div>

@@ -15,9 +15,11 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus('idle')
+
+    const form = e.currentTarget
     
     // Get form data
-    const formData = new FormData(e.currentTarget)
+    const formData = new FormData(form)
     // This is what we are going to extract from the input fields
     const name = formData.get('name')?.toString().trim()
     const email = formData.get('email')?.toString().trim()
@@ -27,6 +29,7 @@ export default function ContactPage() {
       email: email,
       message: message,
     }
+
     if (!name || !email || !message) {
       setSubmitStatus('error')
       setIsSubmitting(false)
@@ -43,7 +46,7 @@ export default function ContactPage() {
 
       if (response.ok) {
         setSubmitStatus('success')
-        e.currentTarget.reset() // Clear the form after submit succ
+        form.reset() // Clear the form after submit succ
       } else {
         setSubmitStatus('error')
       }
@@ -82,7 +85,7 @@ export default function ContactPage() {
                   </div>
                 )}
                 {submitStatus == 'error' && (
-                  <div className="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
+                  <div className="mb-4 p-3 bg-red-100 border border-green-400 text-red-700 rounded">
                     ❌ Failed to send message. Please try again or email me directly.
                   </div>
                 )}

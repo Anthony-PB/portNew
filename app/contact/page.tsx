@@ -1,6 +1,60 @@
+"use client"
+
 import Navbar from "@/components/navbar"
+import { useState } from 'react'
 
 export default function ContactPage() {
+  // State vars
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+
+  // e is the Form Event
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    // Prevent Page Ref
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    
+    // Get form data
+    const formData = new FormData(e.currentTarget)
+    // This is what we are going to extract from the input fields
+    const name = formData.get('name')?.toString().trim()
+    const email = formData.get('email')?.toString().trim()
+    const message = formData.get('message')?.toString().trim()
+    const data = {
+      name: name,
+      email: email,
+      message: message,
+    }
+    if (!name || !email || !message) {
+      setSubmitStatus('error')
+      setIsSubmitting(false)
+      alert('Please fill out all fields before submitting.')
+      return
+    }
+    try {
+      // Send to API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        e.currentTarget.reset() // Clear the form after submit succ
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <main>
       <Navbar />
@@ -22,31 +76,41 @@ export default function ContactPage() {
             <div className="card">
               <div className="card-content">
                 <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-                <form className="form">
+                {submitStatus == 'success' && (
+                  <div className="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
+                    ✅ Message sent successfully! I'll get back to you soon.
+                  </div>
+                )}
+                {submitStatus == 'error' && (
+                  <div className="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
+                    ❌ Failed to send message. Please try again or email me directly.
+                  </div>
+                )}
+                <form className="form" onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label htmlFor="name" className="form-label">
                       Name
                     </label>
-                    <input id="name" type="text" placeholder="Your name" className="form-input" />
+                    <input id="name" name = "name" type="text" placeholder="Your name" className="form-input" required={true}/>
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="email" className="form-label">
                       Email
                     </label>
-                    <input id="email" type="email" placeholder="Your email" className="form-input" />
+                    <input id="email" name = "email" type="email" placeholder="Your email" className="form-input" required={true}/>
                   </div>
 
                   <div className="form-group">
                     <label htmlFor="message" className="form-label">
                       Message
                     </label>
-                    <textarea id="message" placeholder="Your message" rows={6} className="form-textarea"></textarea>
+                    <textarea id="message" name = "message" placeholder="Your message" rows={6} className="form-textarea" required={true}></textarea>
                   </div>
 
-                  <button type="submit" className="btn btn-primary w-full">
+                  <button type="submit" className="btn btn-primary w-full" disabled = {isSubmitting}>
                     <SendIcon />
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
                 </form>
               </div>

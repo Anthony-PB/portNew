@@ -59,16 +59,22 @@ export default function Home() {
               title="Human Protein Atlas Classification"
               description="Machine learning pipeline to classify protein microscopy images using TensorFlow and Python, achieving 95.72% validation accuracy."
               tags={["Python", "TensorFlow", "NumPy", "Pandas"]}
+              image="/project-images/protein_cell.jpg" // Uncomment when you have the image
+              projectUrl="https://github.com/Anthony-PB/ML_notebooks"
             />
             <ProjectCard
               title="Book Tracker"
               description="Full-stack web application for managing a bookstore using the MERN stack with RESTful APIs, showing 30% faster task completion."
               tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
+              // image="/project-images/book-tracker.png" // Uncomment when you have the image | may take a while for this one
+              projectUrl="https://github.com/Anthony-PB/bookTracker"
             />
             <ProjectCard
               title="Prakriti: Feeding the Future"
               description="IoT solution to curb rice crop burning in India, securing a $3,000 award at the Cornell Digital Ag Hackathon."
               tags={["Arduino", "React", "JavaScript", "HTML/CSS"]}
+              image="/project-images/prakriti.png" // Uncomment when you have the image
+              projectUrl="https://prakriti-hack.netlify.app/"
             />
           </div>
 
@@ -165,11 +171,36 @@ export default function Home() {
   )
 }
 
-function ProjectCard({ title, description, tags }: { title: string; description: string; tags: string[] }) {
+function ProjectCard({ 
+  title, 
+  description, 
+  tags, 
+  image, 
+  imageAlt, 
+  projectUrl = "#" 
+}: { 
+  title: string; 
+  description: string; 
+  tags: string[]; 
+  image?: string; 
+  imageAlt?: string; 
+  projectUrl?: string;
+}) {
   return (
     <div className="card">
       <div className="project-image">
-        <ExternalLinkIcon />
+        {image ? (
+          <Image
+            src={image}
+            alt={imageAlt || `${title} preview`}
+            width={400}
+            height={300}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+            className="transition-transform duration-300 hover:scale-105"
+          />
+        ) : (
+          <ExternalLinkIcon />
+        )}
       </div>
       <div className="card-content">
         <h3 className="project-title">{title}</h3>
@@ -181,7 +212,7 @@ function ProjectCard({ title, description, tags }: { title: string; description:
             </span>
           ))}
         </div>
-        <Link href="#" className="btn btn-outline w-full">
+        <Link href={projectUrl} className="btn btn-outline w-full">
           View Project
           <ChevronRight />
         </Link>
@@ -204,6 +235,16 @@ function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
         </div>
       </div>
     </div>
+  )
+}
+
+function ExternalLinkIcon() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+      <polyline points="15 3 21 3 21 9"></polyline>
+      <line x1="10" y1="14" x2="21" y2="3"></line>
+    </svg>
   )
 }
 
@@ -239,16 +280,6 @@ function MailIcon() {
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
       <polyline points="22,6 12,13 2,6"></polyline>
-    </svg>
-  )
-}
-
-function ExternalLinkIcon() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2">
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-      <polyline points="15 3 21 3 21 9"></polyline>
-      <line x1="10" y1="14" x2="21" y2="3"></line>
     </svg>
   )
 }

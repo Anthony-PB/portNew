@@ -28,3 +28,5 @@ next-env.d.ts
 
 # refresh token
 get-spotify-token.js
+
+dist/

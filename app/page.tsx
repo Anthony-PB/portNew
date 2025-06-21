@@ -59,21 +59,21 @@ export default function Home() {
               title="Human Protein Atlas Classification"
               description="Machine learning pipeline to classify protein microscopy images using TensorFlow and Python, achieving 95.72% validation accuracy."
               tags={["Python", "TensorFlow", "NumPy", "Pandas"]}
-              image="/project-images/protein_cell.jpg" // Uncomment when you have the image
+              image="/project-images/protein_cell.jpg"
               projectUrl="https://github.com/Anthony-PB/ML_notebooks"
             />
             <ProjectCard
               title="Book Tracker"
               description="Full-stack web application for managing a bookstore using the MERN stack with RESTful APIs, showing 30% faster task completion."
               tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
-              // image="/project-images/book-tracker.png" // Uncomment when you have the image | may take a while for this one
+              // image="/project-images/book-tracker.png"
               projectUrl="https://github.com/Anthony-PB/bookTracker"
             />
             <ProjectCard
               title="Prakriti: Feeding the Future"
               description="IoT solution to curb rice crop burning in India, securing a $3,000 award at the Cornell Digital Ag Hackathon."
               tags={["Arduino", "React", "JavaScript", "HTML/CSS"]}
-              image="/project-images/prakriti.png" // Uncomment when you have the image
+              image="/project-images/prakriti.png"
               projectUrl="https://prakriti-hack.netlify.app/"
             />
           </div>
@@ -129,7 +129,7 @@ export default function Home() {
             <div className="about-image">
               <div className="profile-image">
                 <Image
-                  src="/placeholder.svg?height=256&width=256"
+                  src="/project-images/littlepic.jpg"
                   alt="Profile"
                   width={256}
                   height={256}

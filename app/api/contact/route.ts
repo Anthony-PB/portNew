@@ -67,7 +67,6 @@ export async function POST(request: NextRequest) {
 */
 
 // I give up on using auth. I will try to figure it out some other time but using the app pass works for now!
-
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 

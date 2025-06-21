@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import Navbar from "@/components/navbar"
+import MySpotify from '@/components/spotify-sec'
 
 export default function AboutPage() {
   return (
@@ -142,6 +143,13 @@ export default function AboutPage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+      
+      {/* Spotify Section*/}
+      <section className="section">
+        <div className="container">
+          <MySpotify />
         </div>
       </section>
 

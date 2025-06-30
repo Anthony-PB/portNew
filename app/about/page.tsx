@@ -159,7 +159,7 @@ export default function AboutPage() {
           <div className="footer-content">
             <div className="text-center">
               <span className="footer-logo gradient-text">Anthony Paredes</span>
-              <p className="footer-copyright">&copy; {new Date().getFullYear()} • Built with Next.js</p>
+              <p className="footer-copyright">&copy; {new Date().getFullYear()} • Built with Next.js and ❤️</p>
             </div>
             <Link href="/contact" className="btn btn-outline">
               Get in Touch

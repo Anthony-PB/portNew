@@ -27,7 +27,7 @@ export default function AboutPage() {
             <div className="about-image">
               <div className="profile-image">
                 <Image
-                  src="/placeholder.svg?height=320&width=320"
+                  src="/project-images/pfp.jpg?height=320&width=320"
                   alt="Profile"
                   width={320}
                   height={320}
@@ -79,7 +79,7 @@ export default function AboutPage() {
                     <p className="text-sm text-muted">
                       Intro CS: Design & Development (Python), Object-Oriented Programming and Data Structures (Java),
                       Intro to Android Development (Kotlin), Foundations of AI Reasoning and Decision-Making (Python),
-                      Introduction to Analysis of Algorithms, Embedded Systems (C, ASM)
+                      Introduction to Analysis of Algorithms, Embedded Systems (C, ASM), Functional Programming (OCaml)
                     </p>
                   </div>
                 </div>

@@ -79,7 +79,8 @@ export default function AboutPage() {
                     <p className="text-sm text-muted">
                       Intro CS: Design & Development (Python), Object-Oriented Programming and Data Structures (Java),
                       Intro to Android Development (Kotlin), Foundations of AI Reasoning and Decision-Making (Python),
-                      Introduction to Analysis of Algorithms, Embedded Systems (C, ASM), Functional Programming (OCaml)
+                      Introduction to Analysis of Algorithms, Embedded Systems (C, ASM), Functional Programming (OCaml),
+                      Intro Machine Learning (Python)
                     </p>
                   </div>
                 </div>

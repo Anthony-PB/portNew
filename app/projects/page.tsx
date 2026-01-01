@@ -37,11 +37,15 @@ export default function ProjectsPage() {
             />
 
             <ProjectCard
-              title="Android Multi-Service App"
-              description="Unified platform streamlining campus life by combining key student services into one app. Enhanced efficiency by integrating features such as Study Buddy, Dining options, and campus utilities. Extensions in progress: Total UI Revamp, Dining Helper, Study Spot Finder."
-              tags={["Kotlin", "Jetpack Compose", "Hilt"]}
-              date="April 2024 - Present"
-              github="https://github.com/alexmcgowan112/android-hack-challenge-fa24"
+              title="3D N-Body Gravity Simulation"
+              description="We focused on building a robust physics sandbox with pre-configured 
+scenarios rather than free-form body placement. Our final system features five distinct scenarios 
+(Three-Body Problem, Randomized 3-Body, Binary Star, Solar System, and Collision Course), 
+with real-time 3D visualization with camera controls, interactive parameter editing through a 
+sidebar interface, collision detection with an animation, and an adjustable simulation speed. "
+              tags={["Ocaml", "Dune"]}
+              date="November 2025 - December 2025"
+              github="https://github.com/Anthony-PB/CS3110MP"
             />
 
             <ProjectCard

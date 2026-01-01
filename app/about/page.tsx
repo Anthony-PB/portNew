@@ -94,14 +94,14 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <h2 className="title">Campus Involvements</h2>
-          <p className="subtitle">My activities and interests at Cornell</p>
+          <p className="subtitle"> My Top 3 activities and clubs at Cornell.</p>
 
           <div className="grid grid-3">
             <div className="card">
               <div className="card-content">
                 <h3 className="text-xl font-semibold mb-3">Cornell Cybersecurity Club</h3>
                 <p className="text-muted">
-                  Active member preparing for competitions, and one of the IVYSEC representatives for the club.
+                  Active member preparing for competitions. A current intermediate member.
                 </p>
               </div>
             </div>
@@ -118,10 +118,9 @@ export default function AboutPage() {
 
             <div className="card">
               <div className="card-content">
-                <h3 className="text-xl font-semibold mb-3">Other Activities</h3>
+                <h3 className="text-xl font-semibold mb-3">Cornell Barbell Club</h3>
                 <p className="text-muted">
-                  Archery Club occasional participant in club practice. Fitness enthusiast regularly working out to
-                  maintain health and challenge personal fitness goals.
+                  An active member and team lift attender.
                 </p>
               </div>
             </div>
@@ -140,7 +139,8 @@ export default function AboutPage() {
               <ul className="list">
                 <li className="list-item">HarvardX: CS50's Introduction to Databases with SQL (in progress)</li>
                 <li className="list-item">CYB101 — Intro to Cybersecurity (CodePath Spring 2025)</li>
-                <li className="list-item">CYB102 — Intro to Cybersecurity (CodePath Summer 2025)</li>
+                <li className="list-item">CYB102 — Intermediate Cybersecurity (CodePath Summer 2025)</li>
+                <li className="list-item">TIP102 — Intermediate Technical Interview Prep (CodePath Fall 2025)</li>
               </ul>
             </div>
           </div>

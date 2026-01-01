@@ -63,11 +63,11 @@ export default function Home() {
               projectUrl="https://github.com/Anthony-PB/ML_notebooks"
             />
             <ProjectCard
-              title="Book Tracker"
-              description="Full-stack web application for managing a bookstore using the MERN stack with RESTful APIs, showing 30% faster task completion."
-              tags={["MongoDB", "Express.js", "React.js", "Node.js"]}
-              // image="/project-images/book-tracker.png"
-              projectUrl="https://github.com/Anthony-PB/bookTracker"
+              title="3D N-Body Gravity Simulation"
+              description="A real-time 3D physics sandbox simulating gravitational interactions between celestial bodies, built from scratch in OCaml."
+              tags={["Dune", "Ocaml"]}
+              youtubeId="-rssoBP_jrM"
+              projectUrl="https://github.com/Anthony-PB/CS3110MP"
             />
             <ProjectCard
               title="Prakriti: Feeding the Future"
@@ -98,7 +98,7 @@ export default function Home() {
           <div className="grid grid-4">
             <SkillCategory
               title="Languages"
-              skills={["Python", "Java", "JavaScript", "Kotlin", "C", "HTML/CSS", "Lua", "Assembly"]}
+              skills={["Python", "Java", "JavaScript", "Kotlin", "C", "HTML/CSS", "Lua", "Assembly", "Rust"]}
             />
             <SkillCategory title="Frameworks" skills={["React.js", "Express.js", "TensorFlow", "JUnit"]} />
             <SkillCategory title="Libraries" skills={["NumPy", "Pandas", "Jetpack Compose"]} />
@@ -176,20 +176,34 @@ function ProjectCard({
   description, 
   tags, 
   image, 
-  imageAlt, 
+  imageAlt,
+  youtubeId,
   projectUrl = "#" 
 }: { 
   title: string; 
   description: string; 
   tags: string[]; 
   image?: string; 
-  imageAlt?: string; 
+  imageAlt?: string;
+  youtubeId?: string;
   projectUrl?: string;
 }) {
-  return (
+return (
     <div className="card">
       <div className="project-image">
-        {image ? (
+        {/* Priority 1: YouTube Video */}
+        {youtubeId ? (
+          <div className="relative w-full aspect-video overflow-hidden">
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+              title={`${title} video demo`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        ) : /* Priority 2: Fallback to Image */
+        image ? (
           <Image
             src={image}
             alt={imageAlt || `${title} preview`}
